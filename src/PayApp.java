@@ -1,5 +1,3 @@
-import java.time.Period;
-
 public class PayApp {
 
     //psvm
@@ -7,17 +5,34 @@ public class PayApp {
 
     public static void main(String[] args) {
 
-   Wallet wallet = new Wallet(200);
-   User user = new User(wallet,"Mani");
-   user.addMoneytoWallet(300);
-   AbstractWallet abstractWallet = new GPay();
 
-        System.out.println( "Google Pays me " + abstractWallet.cashBack());
+    AbstractWallet abstractWallet = new GPay(2000,"Google");
 
-    abstractWallet = new AmazonPay();
-        System.out.println("Amazon pays me " + abstractWallet.cashBack());
+        User user = new User(abstractWallet,"Mani");
+
+        user.addMoney(300);
+
+
+//
+//        System.out.println( "Google Pays me " + abstractWallet.cashBack());
+//
+//    abstractWallet = new AmazonPay();
+//        System.out.println("Amazon pays me " + abstractWallet.cashBack());
 
      user.removeMoneyfromwallet(100);
+        System.out.println("*****************************");
+        System.out.println();
+        System.out.println();
+        System.out.println("From here Amazon pay");
+
+
+     abstractWallet = new AmazonPay(500,"Amazon");
+     user = new User(abstractWallet,"Vapasi");
+     user.addMoney(300);
+     user.addMoney(200);
+     user.removeMoneyfromwallet(100);
+        System.out.println("******************************");
+
 
 
 

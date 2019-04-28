@@ -1,31 +1,31 @@
 public class User {
 
   //User should have a wallet
-  Wallet wallet;
+  AbstractWallet abstractWallet;
   String name;
 
     public User() {
     }
 
-    public User(Wallet wallet,String name) {
-        this.wallet = wallet;
+    public User(AbstractWallet abstractWallet,String name) {
+        this.abstractWallet=abstractWallet;
         this.name = name;
     }
 
-    public void addMoneytoWallet(int amount) {
+    public void addMoney(int amount) {
 
-        wallet.addmoney(amount);
+        abstractWallet.addmoney(amount);
 
         System.out.println(amount +  " added in to the  wallet of "+ name) ;
-        System.out.println( "Total Money in wallet is " + wallet.getMoney()+"  RS");
+        System.out.println( "Total Money in wallet is " + abstractWallet.getMoney()+"  RS");
     }
 
 
     public void removeMoneyfromwallet(int amount) {
 
-        wallet.removemoney(amount);
+        abstractWallet.removemoney(amount);
         System.out.println(amount + " RS"+ "  removed from the  wallet of " + name);
-        System.out.println( "Total Money in wallet is " + wallet.getMoney());
+        System.out.println( "Total Money in wallet is " + abstractWallet.getMoney());
 
 
     }
